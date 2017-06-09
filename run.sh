@@ -3,6 +3,7 @@ set -e
 
 readonly ERRBIN="/app/venv/bin/errbot"
 readonly ERRRUN="/srv"
+readonly ERRCONF="/srv/config.py"
 
 
 is_set() {
