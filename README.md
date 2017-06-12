@@ -1,4 +1,6 @@
-# rroemhild/errbot
+# larrycai/errbot
+
+forked from [rroemhild/docker-errbot](https://github.com/rroemhild/docker-errbot) with changes for new needs
 
 - [Introduction](#introduction)
 - [Quick Start](#quick-start)
@@ -30,13 +32,6 @@ docker run -d \
     -e CHATROOM_PRESENCE=err@conference.xmpp.local \
     -e "TZ=Europe/Berlin" \
     larrycai/errbot
-```
-
-or try the docker compose example
-
-```bash
-wget https://raw.githubusercontent.com/rroemhild/docker-err/master/docker-compose.yml
-docker-compose up
 ```
 
 # Configuration
@@ -99,21 +94,25 @@ If you pass arguments to Errbot you have to set the `-c /srv/config.py` argument
 ## Alternative config file
 
 ```bash
-docker run -it -v /tmp/errbot:/srv rroemhild/errbot -c /srv/production.py
+docker run -it -v /tmp/errbot:/srv larrycai/errbot -c /srv/production.py
 ```
 
 ## Err Help
 
 ```bash
-$ docker run rroemhild/errbot -h
+$ docker run larrycai/errbot -h
 ```
 
 ## Run with text debug backend
 
 ```bash
-docker run -it -v /tmp/errbot:/srv rroemhild/errbot -c /srv/config.py -T
+docker run -it -v /tmp/errbot:/srv larrycai/errbot -c /srv/config.py -T
 ```
 
 # Exposed Ports
 
 * 3142 (Webserver if configured)
+
+## What has changed from fork ##
+
+Due to dependance issues, python 3pp is moved into base image and use ubuntu instead

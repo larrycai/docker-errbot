@@ -1,8 +1,9 @@
 # Errbot - the pluggable chatbot
 
-FROM debian:jessie
+FROM ubuntu:xenial
 
-MAINTAINER Rafael Römhild <rafael@roemhild.de>
+# MAINTAINER Rafael Römhild <rafael@roemhild.de>
+MAINTAINER Larry Cai <larry.caiyu@gmail.com
 
 ENV ERR_USER err
 ENV DEBIAN_FRONTEND noninteractive
@@ -37,10 +38,9 @@ RUN apt-get update \
          python3-pyasn1 \
          python3-geoip \
          python3-lxml \
-    && locale-gen C.UTF-8 \
-    && /usr/sbin/update-locale LANG=C.UTF-8 \
-    && echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen \
-    && locale-gen \
+         python3-cryptography \
+         language-pack-en-base \
+    && dpkg-reconfigure locales \
     && pip3 install virtualenv \
     && pip3 install -U setuptools \
 	&& rm -rf /var/lib/apt/lists/*
